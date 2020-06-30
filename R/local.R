@@ -88,7 +88,7 @@ local_check_linux <- function(path = ".", quiet = FALSE, image = NULL,
     wd,
     run(bash, c(file.path(wd, "rhub-linux.sh"), args), echo = TRUE,
         stdout_line_callback = callback, stderr_line_callback = callback,
-        timeout = timeout, spinner = FALSE)
+        timeout = timeout, spinner = FALSE, env = c(Sys.getenv(), env_vars))
   )
 
   ## TODO: better error object
